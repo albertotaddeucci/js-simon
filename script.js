@@ -29,16 +29,26 @@ buttonStop.addEventListener("click", function(){
 //costanti tempo attuale
 const currentDate = new Date();
 let currentHour = currentDate.getHours();
+let currentMinutes = currentDate.getMinutes();
+
+console.log(currentMinutes)
 
 //costanti per le ore
 const hour = document.getElementById("ora");
 let hCounter =+ 0
+
+//costanti per i minuti
+const minutes = document.getElementById("minuti");
+let minCounter =+ 0
 
 
 //ogni 1000ms scatta la funzione che mi diminuisce il counter
 const myHour = setInterval(counterHour, 1000); //impostare ore corrette
 let remainingHours = (24+9) - (currentHour);
 
+//ogni 1000ms scatta la funzione che mi diminuisce il counter
+const myMinutes = setInterval(counterMinutes, 1000); //impostare minuti corrette
+let remainingMinutes = 60 - (currentMinutes);
 
 
 
@@ -48,10 +58,29 @@ let remainingHours = (24+9) - (currentHour);
 
 function counterHour() {
     hCounter++
-    hour.innerText = remainingHours - `${hCounter}`
+    hour.innerText = `ore mancanti: ${remainingHours - hCounter}`
 
     if (hCounter >= remainingHours){
         clearTimeout(myHour)
+
+    }
+    
+}
+
+function counterMinutes() {
+    minCounter++
+    minutes.innerText = `minuti mancanti: ${remainingMinutes - minCounter}`
+
+
+    if (minCounter >= remainingMinutes){
+
+        minCounter = 0;
+        
+        // clearTimeout(myMinutes)
+
+    }
+
+    if(minCounter > 100){
 
     }
     
