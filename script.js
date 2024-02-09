@@ -8,35 +8,15 @@ Ogni secondo il nostro countdown dovrà scalare
 */
 
 
-/*
-
-Conto all arovesce fino alle 9 di domani
- (da cambiare poi con il giorno esatto)
- - prendo l'ora di adesso
- - faccio (24+9)-ora =>totale ore da contare
- - ad ogni ora aggiorno il counter
-
-
-*/
-
-//bottone stop
-const buttonStop = document.getElementById("button")
-buttonStop.addEventListener("click", function(){
-    clearTimeout(myHour)
-    clearTimeout(myMinutes)
-    clearTimeout(mySeconds)
-
-
-})
-
-//costanti tempo attuale
 
 
 
-setInterval(showTime, 1000);
+
+
+
+const timer = setInterval(showTime, 1000);
 
 function showTime(){
-    let currentDate = new Date();
     const expiringTime = new Date("2024-02-12T09:30:00");
     
     let tot = Date.parse(expiringTime) - Date.parse(new Date());
@@ -45,14 +25,18 @@ function showTime(){
     let hour = Math.floor( (tot/(1000*60*60)) % 24 );
     let days = Math.floor( tot/(1000*60*60*24) );
     
-    // console.log(currentDate)
-    document.getElementById("giorni").innerText = sec
+    document.getElementById("giorni").innerText = sec;
 
-    document.getElementById("giorni").innerText = days
-    document.getElementById("ore").innerText = hour
-    document.getElementById("minuti").innerText = min
-    document.getElementById("secondi").innerText = sec
+    document.getElementById("giorni").innerText = days;
+    document.getElementById("ore").innerText = hour;
+    document.getElementById("minuti").innerText = min;
+    document.getElementById("secondi").innerText = sec;
 
+    if (sec==0&&min==0&& hour==0 && days==0){
+        clearInterval(timer);
+        
+
+    }
 }
 
 
