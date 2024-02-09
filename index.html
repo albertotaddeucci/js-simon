@@ -11,29 +11,40 @@
     <!-- ------------------------------ My style ------------------------------- -->
     <link rel="stylesheet" href="style.css">
 
+    <!-- ----------------------------- googlefonts ----------------------------- -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <div class="container text-center ">
-        <h1>Timer</h1>
-        <div class="row position-relative ">
-            <div class="col-3 d-flex justify-content-center align-items-center p-5 fs-1">
-                <div id="giorni"></div>
+        <h1 class="my-4">Mancano ...</h1>
+        <div class="row position-relative my_shadow">
+            <div class="my_card rounded-start-5 col-3 d-flex flex-column  gap-3 align-items-center p-5 fs-1">
+                <div class="my_style" id="giorni"></div>
+                <div class="fs-5">Giorni </div>
 
             </div>
-            <div class="col-3 d-flex justify-content-center align-items-center p-5 fs-1">
-                <div id="ore"></div>
+            <div class="my_card col-3 d-flex flex-column gap-3 align-items-center p-5 fs-1">
+                <div class="my_style" id="ore"></div>
+                <div class="fs-5">Ore </div>
+
 
             </div>
-            <div class="col-3 d-flex justify-content-center align-items-center p-5 fs-1">
-                <div id="minuti"></div>
+            <div class="my_card col-3 d-flex flex-column gap-3 align-items-center p-5 fs-1">
+                <div class="my_style" id="minuti"></div>
+                <div class="fs-5">Minuti </div>
+
 
             </div>
-            <div class="col-3 d-flex justify-content-center align-items-center p-5 fs-1">
-                <div id="secondi"></div>
+            <div class="my_card rounded-end-5 col-3 d-flex flex-column gap-3 align-items-center p-5 fs-1">
+                <div class="my_style" id="secondi"></div>
+                <div class="fs-5">Secondi </div>
+
 
             </div>
-            <div id="result" class="position-absolute top-50 start-50 translate-middle-x fs-1 p-4 bg-danger col-3" style="display: none;">Boom!</div>
+            <div id="result" class="position-absolute top-50 start-50 translate-middle fs-1 p-4 col-6 style_pop" style="display: none;">Tempo scaduto!</div>
         </div>
 
     </div>

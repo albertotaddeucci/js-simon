@@ -42,6 +42,7 @@ function showTime(){
     document.getElementById("minuti").innerText = min;
     document.getElementById("secondi").innerText = sec;
 
+
     if (sec==0&&min==0&& hour==0 && days==0){
         clearInterval(timer);
         end.style.display = "block"
