@@ -23,6 +23,9 @@ Conto all arovesce fino alle 9 di domani
 const buttonStop = document.getElementById("button")
 buttonStop.addEventListener("click", function(){
     clearTimeout(myHour)
+    clearTimeout(myMinutes)
+    clearTimeout(mySeconds)
+
 
 })
 
@@ -30,8 +33,9 @@ buttonStop.addEventListener("click", function(){
 const currentDate = new Date();
 let currentHour = currentDate.getHours();
 let currentMinutes = currentDate.getMinutes();
+let currentSeconds = currentDate.getSeconds();
 
-console.log(currentMinutes)
+console.log(currentSeconds)
 
 //costanti per le ore
 const hour = document.getElementById("ora");
@@ -40,6 +44,10 @@ let hCounter =+ 0
 //costanti per i minuti
 const minutes = document.getElementById("minuti");
 let minCounter =+ 0
+
+//costanti per i secondi
+const seconds = document.getElementById("secondi");
+let secCounter =+ 0
 
 
 //ogni 1000ms scatta la funzione che mi diminuisce il counter
@@ -50,6 +58,9 @@ let remainingHours = (24+9) - (currentHour);
 const myMinutes = setInterval(counterMinutes, 1000); //impostare minuti corrette
 let remainingMinutes = 60 - (currentMinutes);
 
+//ogni 1000ms scatta la funzione che mi diminuisce il counter
+const mySeconds = setInterval(counterSeconds, 1000); 
+let remainingSeconds = 60 - (currentSeconds);
 
 
 
@@ -74,13 +85,28 @@ function counterMinutes() {
 
     if (minCounter >= remainingMinutes){
 
-        minCounter = 0;
-        
-        // clearTimeout(myMinutes)
+        minCounter = 0;        
 
     }
 
     if(minCounter > 100){
+
+    }
+    
+}
+
+function counterSeconds() {
+    secCounter++
+    seconds.innerText = `Secondi mancanti: ${remainingSeconds - secCounter}`
+
+
+    if (secCounter >= remainingSeconds){
+
+        secCounter = 0;        
+
+    }
+
+    if(secCounter > 100){
 
     }
     
