@@ -34,33 +34,28 @@ const currentDate = new Date();
 const expiringTime = new Date("2024-02-10T09:30:00");
 
 let tot = Date.parse(expiringTime) - Date.parse(new Date());
-let sec = Math.floor( (t/1000) % 60 );
-let min = Math.floor( (t/1000/60) % 60 ); 
-let hour = Math.floor( (t/(1000*60*60)) % 24 );
-let days = Math.floor( t/(1000*60*60*24) );
+let sec = Math.floor( (tot/1000) % 60 );
+let min = Math.floor( (tot/1000/60) % 60 ); 
+let hour = Math.floor( (tot/(1000*60*60)) % 24 );
+let days = Math.floor( tot/(1000*60*60*24) );
 
 // let currentHour = currentDate.getHours();
 // let currentMinutes = currentDate.getMinutes();
 // let currentSeconds = currentDate.getSeconds();
 
-document.getElementById("ora").innerText = days
+document.getElementById("giorni").innerText = days
+document.getElementById("ore").innerText = hour
+document.getElementById("minuti").innerText = min
+document.getElementById("secondi").innerText = sec
+
+
 
 // timeRemaining(expiringTime);
 
 
 console.log(currentSeconds)
 
-//costanti per le ore
-// const hour = document.getElementById("ora");
-let hCounter =+ 0
 
-//costanti per i minuti
-const minutes = document.getElementById("minuti");
-let minCounter =+ 0
-
-//costanti per i secondi
-const seconds = document.getElementById("secondi");
-let secCounter =+ 0
 
 
 //ogni 1000ms scatta la funzione che mi diminuisce il counter
@@ -128,19 +123,3 @@ function counterSeconds() {
     }
     
 }
-
-
-
-
-
-// function timeRemaining(date){
-	
-
-// 	return {
-// 		'tot': t,
-// 		'days': days,
-// 		'hours': hour,
-// 		'minutes': min,
-// 		'seconds': sec 
-// 	}; 
-// }
