@@ -11,7 +11,7 @@ Ogni secondo il nostro countdown dovrà scalare
 
 
 
-
+let end = document.getElementById("result")
 
 
 const timer = setInterval(showTime, 1000);
@@ -34,6 +34,7 @@ function showTime(){
 
     if (sec==0&&min==0&& hour==0 && days==0){
         clearInterval(timer);
+        end.style.display = "block"
         
 
     }
