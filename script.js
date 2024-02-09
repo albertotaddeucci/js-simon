@@ -30,45 +30,30 @@ buttonStop.addEventListener("click", function(){
 })
 
 //costanti tempo attuale
-const currentDate = new Date();
-const expiringTime = new Date("2024-02-10T09:30:00");
-
-let tot = Date.parse(expiringTime) - Date.parse(new Date());
-let sec = Math.floor( (tot/1000) % 60 );
-let min = Math.floor( (tot/1000/60) % 60 ); 
-let hour = Math.floor( (tot/(1000*60*60)) % 24 );
-let days = Math.floor( tot/(1000*60*60*24) );
-
-// let currentHour = currentDate.getHours();
-// let currentMinutes = currentDate.getMinutes();
-// let currentSeconds = currentDate.getSeconds();
-
-document.getElementById("giorni").innerText = days
-document.getElementById("ore").innerText = hour
-document.getElementById("minuti").innerText = min
-document.getElementById("secondi").innerText = sec
 
 
 
-// timeRemaining(expiringTime);
+setInterval(showTime, 1000);
 
+function showTime(){
+    let currentDate = new Date();
+    const expiringTime = new Date("2024-02-12T09:30:00");
+    
+    let tot = Date.parse(expiringTime) - Date.parse(new Date());
+    let sec = Math.floor( (tot/1000) % 60 );
+    let min = Math.floor( (tot/1000/60) % 60 ); 
+    let hour = Math.floor( (tot/(1000*60*60)) % 24 );
+    let days = Math.floor( tot/(1000*60*60*24) );
+    
+    // console.log(currentDate)
+    document.getElementById("giorni").innerText = sec
 
-console.log(currentSeconds)
+    document.getElementById("giorni").innerText = days
+    document.getElementById("ore").innerText = hour
+    document.getElementById("minuti").innerText = min
+    document.getElementById("secondi").innerText = sec
 
-
-
-
-//ogni 1000ms scatta la funzione che mi diminuisce il counter
-let remainingHours = (24+9) - (currentHour);
-const myHour = setInterval(counterHour, 1000); //impostare ore corrette
-
-//ogni 1000ms scatta la funzione che mi diminuisce il counter
-let remainingMinutes = 60 - (currentMinutes);
-const myMinutes = setInterval(counterMinutes, 60 * 1000); //impostare minuti corrette
-
-//ogni 1000ms scatta la funzione che mi diminuisce il counter
-let remainingSeconds = 60 - (currentSeconds);
-const mySeconds = setInterval(counterSeconds, 1000); 
+}
 
 
 
